@@ -1,4 +1,4 @@
-  public function alta(Request $request)
+public function alta(Request $request)
 {
     $request->validate([
         'nombre' => 'required',
@@ -18,7 +18,7 @@ public function baja(Persona $persona)
 }
 
 
-public function modificar(Request $request, Persona $persona)
+public function Modificar(Request $request, Persona $persona)
 {
     $request->validate([
         'nombre' => 'required',
@@ -31,10 +31,24 @@ public function modificar(Request $request, Persona $persona)
     return $persona;
 }
 
-public function listado()
+public function buscar(Request $request)
 {
-    return Persona::all();
+    $query = Persona::query();
+
+    if ($request->has('nombre')) {
+        $query->where('nombre', 'like', '%' . $request->nombre . '%');
+    }
+
+    if ($request->has('apellido')) {
+        $query->where('apellido', 'like', '%' . $request->apellido . '%');
+    }
+
+    if ($request->has('id')) {
+        $query->where('id', 'like', '%' . $request->id . '%');
+    }
+    return $query->get();
 }
+
 
 
 
