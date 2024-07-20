@@ -1,4 +1,4 @@
-public function destroy(Persona $persona)
+public function baja(Persona $persona)
 {
     $persona->delete();
     return response()->json(null, 204);
