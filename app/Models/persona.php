@@ -1,0 +1,1 @@
+protected $fillable = ['nombre', 'apellido', 'telefono', 'id'];
