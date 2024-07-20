@@ -1,4 +1,4 @@
-public function alta(Request $request)
+  public function alta(Request $request)
 {
     $request->validate([
         'nombre' => 'required',
@@ -9,7 +9,13 @@ public function alta(Request $request)
     ]);
 
     return Persona::create($request->all());
+
+public function baja(Persona $persona)
+{
+    $persona->delete();
+    return response()->json(null, 204);
 }
+
 
 public function Modificar(Request $request, Persona $persona)
 {
@@ -23,3 +29,8 @@ public function Modificar(Request $request, Persona $persona)
     $persona->update($request->all());
     return $persona;
 }
+
+
+
+
+
