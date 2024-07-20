@@ -1,10 +1,3 @@
-
-public function baja(Persona $persona)
-{
-    $persona->delete();
-    return response()->json(null, 204);
-
-
   public function alta(Request $request)
 {
     $request->validate([
@@ -18,3 +11,8 @@ public function baja(Persona $persona)
     return Persona::create($request->all());
 
 }
+
+public function baja(Persona $persona)
+{
+    $persona->delete();
+    return response()->json(null, 204);
