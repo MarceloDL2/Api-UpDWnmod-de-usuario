@@ -7,6 +7,7 @@
         'id' => 'required',
 
     ]);
+}
 
     return Persona::create($request->all());
 
@@ -17,7 +18,7 @@ public function baja(Persona $persona)
 }
 
 
-public function Modificar(Request $request, Persona $persona)
+public function modificar(Request $request, Persona $persona)
 {
     $request->validate([
         'nombre' => 'required',
@@ -30,7 +31,10 @@ public function Modificar(Request $request, Persona $persona)
     return $persona;
 }
 
-
+public function listado()
+{
+    return Persona::all();
+}
 
 
 
