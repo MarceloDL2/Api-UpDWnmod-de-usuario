@@ -30,7 +30,23 @@ public function Modificar(Request $request, Persona $persona)
     return $persona;
 }
 
+public function buscar(Request $request)
+{
+    $query = Persona::query();
 
+    if ($request->has('nombre')) {
+        $query->where('nombre', 'like', '%' . $request->nombre . '%');
+    }
+
+    if ($request->has('apellido')) {
+        $query->where('apellido', 'like', '%' . $request->apellido . '%');
+    }
+
+    if ($request->has('id')) {
+        $query->where('id', 'like', '%' . $request->id . '%');
+    }
+    return $query->get();
+}
 
 
 
