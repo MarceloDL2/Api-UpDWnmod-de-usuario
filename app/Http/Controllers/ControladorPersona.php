@@ -10,3 +10,8 @@ public function alta(Request $request)
     return Persona::create($request->all());
 }
 
+public function baja(Persona $persona)
+{
+    $persona->delete();
+    return response()->json(null, 204);
+}
