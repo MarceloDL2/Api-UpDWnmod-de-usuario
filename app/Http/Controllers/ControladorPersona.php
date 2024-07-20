@@ -1,4 +1,4 @@
-  public function alta(Request $request)
+public function alta(Request $request)
 {
     $request->validate([
         'nombre' => 'required',
@@ -7,6 +7,7 @@
         'id' => 'required',
 
     ]);
+}
 
     return Persona::create($request->all());
 
@@ -47,6 +48,7 @@ public function buscar(Request $request)
     }
     return $query->get();
 }
+
 
 
 
