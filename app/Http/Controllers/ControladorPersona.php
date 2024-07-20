@@ -10,3 +10,16 @@ public function alta(Request $request)
 
     return Persona::create($request->all());
 }
+
+public function Modificar(Request $request, Persona $persona)
+{
+    $request->validate([
+        'nombre' => 'required',
+        'apellido' => 'required',
+        'telefono' => 'required',
+        'id' => 'required',
+    ]);
+
+    $persona->update($request->all());
+    return $persona;
+}
